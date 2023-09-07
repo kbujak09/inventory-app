@@ -1,8 +1,132 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: "IKEA Sans Regular";
+  src: url("https://db.onlinewebfonts.com/t/dafeb0d1d15beb00b5135cc45fa474ff.eot");
+  src: url("https://db.onlinewebfonts.com/t/dafeb0d1d15beb00b5135cc45fa474ff.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/dafeb0d1d15beb00b5135cc45fa474ff.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/dafeb0d1d15beb00b5135cc45fa474ff.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/dafeb0d1d15beb00b5135cc45fa474ff.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/dafeb0d1d15beb00b5135cc45fa474ff.svg#IKEA Sans Regular")format("svg");
 }
-
+@font-face {
+  font-family: "IKEASans-Bold";
+  src: url("https://db.onlinewebfonts.com/t/eb170287d0e44284a3292879844309b2.eot");
+  src: url("https://db.onlinewebfonts.com/t/eb170287d0e44284a3292879844309b2.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/eb170287d0e44284a3292879844309b2.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/eb170287d0e44284a3292879844309b2.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/eb170287d0e44284a3292879844309b2.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/eb170287d0e44284a3292879844309b2.svg#IKEASans-Bold")format("svg");
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #0058AB;
+  color: #FBD914;
+  font-family: 'IKEA Sans Regular';
+}
+li {
+  list-style: none;
+}
+.header {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px;
+}
+.logoImage {
+  width: 240px;
+  border: 1px solid rgb(174, 174, 174);
+}
+.logoText {
+  width: 240px;
+  font-family: 'IKEASans-Bold';
+  letter-spacing: 4px;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+.main {
+  margin: 0 16%;
+  text-align: center;
+}
+.title {
+  font-size: 36px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+hr {
+  margin: 18px 0;
+  border: 0;
+  background-color: #FBD914;
+  height: 2px;
+}
+.categoriesList, .categoryData  {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  flex-direction: column;
+  font-size: 24px;
+  gap: 16px;
+}
+.categoryData {
+  gap: 16px;
+  letter-spacing: 1.2px;
+}
+.category {
+  text-decoration: none;
+  cursor: pointer;
+  color: #FBD914;
+}
+.addCategory {
+  text-decoration: none;
+  border: 0;
+  color: #ffffff;
+  background-color: transparent;
+  cursor: pointer;
+  padding-top: 36px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.categoryDataText {
+  color: rgb(221, 221, 221);
+  margin-left: 20px;
+}
+.categoryItems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.categoryItem {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid #FBD914;
+  border-bottom: 1px solid #FBD914;
+}
+.categoryItemName, .categoryItemDescription, .categoryItemPrice, .categoryItemCount {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  word-wrap: normal;
+  gap: 120px;
+}
+.categoryItemText {
+  color: rgb(221, 221, 221);
+  text-align: justify;
+  word-break: break-all;
 }

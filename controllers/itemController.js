@@ -1,10 +1,6 @@
 const Item = require('../models/item');
 const asyncHandler = require('express-async-handler');
 
-exports.item_list = asyncHandler(async (req, res, next) => {
-  res.send('tba');
-});
-
 exports.item_detail = asyncHandler(async (req, res, next) => {
   res.send('tba');
 });

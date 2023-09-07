@@ -10,6 +10,8 @@ const ItemSchema = new Schema({
   category: [{ type: Schema.Types.ObjectId, ref: "Category" }],
 });
 
-ItemSchema.virtual('url').get(() => `/inventory/:category/${this.id}`);
+ItemSchema.virtual('url').get(function() {
+   `/inventory/:category/${this.id}`
+});
 
 module.exports = mongoose.model('Item', ItemSchema);

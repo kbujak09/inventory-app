@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+  h1.title= title 
+  hr
+  div.categoryData 
+    div.categoryName Name: 
+      span.categoryDateText #{category.name}
+    div.categoryDescription Description: 
+      span.categoryDateText #{category.description}
+    ul.categoryItems Items:
+      each item in items
+        li.categoryItem
+          div.categoryItemName  Name: 
+            span.categoryItemText #{item.name} 
+          div.categoryItemDescription Description: 
+            span.categoryItemText #{item.description}
+          div.categoryItemPrice Price: 
+            span.categoryItemText #{item.price}$
+          div.categoryItemCount Count: 
+            span.categoryItemText #{item.count}

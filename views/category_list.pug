@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1.title= title
+  hr
+  ul.categoriesList
+    each category in categories
+      a(href=category.url)
+        li.category= category.name
+    a(href='inventory/category/create/')
+      button.addCategory(type='button') add category

@@ -1,7 +1,13 @@
+-const logo = '/images/logo.svg'
 doctype html
 html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header.header
+      a.logo(href="/")
+        img.logoImage(src=logo a='logo')
+        div.logoText STORAGE 
+    main.main
+      block content 
