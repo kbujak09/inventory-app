@@ -7,5 +7,5 @@ block content
     each category in categories
       a(href=category.url)
         li.category= category.name
-    a(href='inventory/category/create/')
-      button.addCategory(type='button') add category
+    a.addCategory(href='inventory/category/create/')
+      button.addCategoryBtn(type='button') add category

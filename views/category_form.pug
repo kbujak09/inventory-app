@@ -1,7 +1,8 @@
 extends layout 
 
 block content
-  h1= title
+  h1.title= title
+    a.categoryPrevious(href='/') <
   hr
   form(action="" method='POST')
     div.formGroup
@@ -10,7 +11,7 @@ block content
     div.formGroup
       label(form='description') Description: 
       input#description.formInput(type='text' placeholder='Description' name='description' required='true' value=(undefined === category ? '' : category.description)) 
-    button(type='submit') Submit
+    button.formSubmit(type='submit') submit
 
     if errors 
       ul

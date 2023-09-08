@@ -43,7 +43,7 @@ exports.category_create_post = [
     .trim()
     .isLength({ min: 1})
     .escape(),
-  body('description', 'Description must not be empty')
+  body('description', 'Description must not be empty.')
     .trim()
     .isLength( {min: 3})
     .withMessage('Description must contain at least 3 characters.')
@@ -79,17 +79,88 @@ exports.category_create_post = [
 ]
 
 exports.category_delete_get = asyncHandler(async (req, res, next) => {
-  res.send('tba');
+  const [ category, allItems ] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Item.find({ category: req.params.id }).exec(),
+  ]);
+
+  if (category === null) {
+    res.redirect('/');
+  };
+
+  res.render('category_delete', {
+    title: "Delete Category",
+    category: category,
+    items: allItems
+  });
 });
 
 exports.category_delete_post = asyncHandler(async (req, res, next) => {
-  res.send('tba');
+  const [ category, allItems ] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Item.find({ category: req.params.id }).exec()
+  ]);
+
+  if (allItems.length > 0) {
+    res.render('category_delete', {
+      title: 'Delete Category',
+      category: category,
+      items: allItems, 
+    });
+    return;
+  }
+  else {
+    await Category.findByIdAndRemove(req.body.categoryid);
+    res.redirect('/');
+  }
 });
 
 exports.category_update_get = asyncHandler(async (req, res, next) => {
-  res.send('tba');
+  const category = await Category.findById(req.params.id).exec();
+
+  if (category === null) {
+    const err = new Error('Category not found');
+    err.status = 404;
+    return next(err);
+  }
+
+  res.render('category_form', {
+    title: "Update Category",
+    category: category
+  });
 });
 
-exports.category_update_post = asyncHandler(async (req, res, next) => {
-  res.send('tba');
-});
+exports.category_update_post = [
+  body('name', 'Name must not be empty.')
+    .trim()
+    .isLength({ min: 1})
+    .escape(),
+  body('description', 'Description must not be empty')
+    .trim()
+    .isLength( {min: 3})
+    .withMessage('Description must contain at least 3 characters.')
+    .escape(),
+
+    asyncHandler(async (req, res, next) => {
+      const errors = validationResult(req);
+
+      const category = new Category({
+        name: req.body.name,
+        description: req.body.description,
+        _id: req.params.id,
+      });
+
+    if (!errors.isEmpty()) {
+      res.render('category_form', {
+        name: "Update Category",
+        category: category,
+        errors: errors.array(),
+      });
+      return;
+      }
+      else {
+        const updatedCategory = await Category.findByIdAndUpdate(req.params.id, category, {});
+        res.redirect(updatedCategory.url);
+      }
+  })
+]

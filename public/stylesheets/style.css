@@ -24,14 +24,21 @@ a {
   text-decoration: none;
   margin: 0;
   padding: 0;
+  color: #FBD914;
 }
 body {
   background-color: #0058AB;
   color: #FBD914;
   font-family: 'IKEA Sans Regular';
+  letter-spacing: 1.2px;
 }
 li {
   list-style: none;
+}
+button {
+  background-color: transparent;
+  color: #FBD914;
+  border: 0;
 }
 .header {
   margin-bottom: 50px;
@@ -66,6 +73,7 @@ li {
   text-align: center;
   font-weight: 700;
   letter-spacing: 2.4px;
+  position: relative;
 }
 hr {
   margin: 18px 0;
@@ -78,12 +86,12 @@ hr {
   align-items: center;
   padding: 20px 0;
   flex-direction: column;
-  font-size: 24px;
-  gap: 16px;
+  font-size: 28px;
+  gap: 24px;
 }
 .categoryData {
   gap: 16px;
-  letter-spacing: 1.2px;
+  position: relative;
 }
 .category {
   text-decoration: none;
@@ -91,14 +99,19 @@ hr {
   color: #FBD914;
 }
 .addCategory {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+.addCategoryBtn {
   text-decoration: none;
   border: 0;
   color: #ffffff;
   background-color: transparent;
   cursor: pointer;
-  padding-top: 36px;
-  font-weight: 400;
-  letter-spacing: 1px;
+  font-size: 20px;
+  font-family: 'IKEA Sans Regular';
+  letter-spacing: 1.2px;
 }
 .categoryDataText {
   color: rgb(221, 221, 221);
@@ -107,7 +120,7 @@ hr {
 .categoryItems {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 .categoryItem {
   font-size: 20px;
@@ -118,15 +131,103 @@ hr {
   border-top: 1px solid #FBD914;
   border-bottom: 1px solid #FBD914;
 }
-.categoryItemName, .categoryItemDescription, .categoryItemPrice, .categoryItemCount {
-  width: 600px;
+.categoryItemName, .categoryItemCount {
+  width: 400px;
   display: flex;
-  justify-content: space-between;
   word-wrap: normal;
-  gap: 120px;
+  justify-content: space-between;
 }
 .categoryItemText {
   color: rgb(221, 221, 221);
   text-align: justify;
   word-break: break-all;
+}
+.categoryUpdate, .categoryDelete, .itemUpdate, .itemDelete {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 700;
+  top: 0;
+}
+.categoryDelete {
+  right: 20px;
+}
+.categoryUpdate {
+  left: 20px;
+}
+.categoryPrevious {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 32px;
+  color: #FBD914;
+}
+.categoryItemAdd {
+  font-size: 24px;
+}
+.itemName, .itemDescription, .itemPrice, .itemCount {
+  font-size: 24px;
+  color: #FBD914;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  align-items: center;
+}
+.itemData {
+  color: rgb(221, 221, 221);
+  text-align: justify;
+  word-break: break-all;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  padding: 20px 0;
+}
+.itemDescription {
+  inline-size: 600px;
+}
+.categoryItemDetail {
+  text-align: center;
+  color: #d1d1d1;
+}
+.deleteItem {
+  font-size: 24px;
+  text-decoration: underline 1px;
+  text-underline-offset: 4px;
+}
+.deleteList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.formGroup > label {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.formGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.formInput {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 0;
+}
+.formSubmit {
+  background-color: #FBD914;
+  padding: 8px 16px;
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 25px;
+  margin-top: 12px;
+  font-family: "IKEASans-Bold";
 }

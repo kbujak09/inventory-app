@@ -2,20 +2,26 @@ extends layout
 
 block content 
   h1.title= title 
+    a.categoryPrevious(href='/') <
   hr
   div.categoryData 
+    a.categoryDelete(href=category.url + '/delete') Delete
+    a.categoryUpdate(href=category.url + '/update') Update
     div.categoryName Name: 
-      span.categoryDateText #{category.name}
+      span.categoryDataText #{category.name}
     div.categoryDescription Description: 
-      span.categoryDateText #{category.description}
+      span.categoryDataText #{category.description}
     ul.categoryItems Items:
-      each item in items
-        li.categoryItem
-          div.categoryItemName  Name: 
-            span.categoryItemText #{item.name} 
-          div.categoryItemDescription Description: 
-            span.categoryItemText #{item.description}
-          div.categoryItemPrice Price: 
-            span.categoryItemText #{item.price}$
-          div.categoryItemCount Count: 
-            span.categoryItemText #{item.count}
+      if items.length === 0
+        li.categoryItemText "there's no items"
+      else 
+        each item in items 
+          li.categoryItem
+            div.categoryItemName  Name: 
+              span.categoryItemText #{item.name} 
+            div.categoryItemCount Count: 
+              span.categoryItemText #{item.count}
+            div.categoryItemOperations
+              a.categoryItemDetail(href=category.url + item.url) detail
+    a.categoryItemAdd(href=category.url + '/item/create') add item
+  

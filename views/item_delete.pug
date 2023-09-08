@@ -1,0 +1,14 @@
+extends layout 
+
+block content
+  h1.title= title
+    a.categoryPrevious(href=category.url + item.url) <
+  hr
+  h2 Do you really want to delete this Item?
+
+  form(method='POST' action='')
+    div.formGroup 
+      input#itemid.formInput(type='hidden' name='itemid' required='true' value=item._id)
+    
+    button.formSubmit(type='submit') Delete
+

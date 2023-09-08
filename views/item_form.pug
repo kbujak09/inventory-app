@@ -1,0 +1,25 @@
+extends layout 
+
+block content 
+  h1.title= title 
+    a.categoryPrevious(href=category.url) <
+  hr
+  form(action="" method='POST')
+    div.formGroup
+      label(form='name') Name: 
+      input#name.formInput(type='text' placeholder='Name' name='name' required='true' value=(undefined === item ? '' : item.name)) 
+    div.formGroup
+      label(form='description') Description: 
+      input#description.formInput(type='text' placeholder='Description' name='description' required='true' value=(undefined === item ? '' : item.description)) 
+    div.formGroup
+      label(form='price') Price: 
+      input#price.formInput(type='number' name='price' required='true' value=(undefined === item ? '' : item.price)) 
+    div.formGroup
+      label(form='count') Count: 
+      input#count.formInput(type='number' name='count' required='true' value=(undefined === item ? '' : item.count)) 
+    button.formSubmit(type='submit') Submit
+
+    if errors 
+      ul
+        for error in errors
+         li!= error.msg

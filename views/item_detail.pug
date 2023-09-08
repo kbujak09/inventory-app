@@ -1,0 +1,19 @@
+extends layout 
+
+block content
+  h1.title= title
+    a.categoryPrevious(href=category.url) <
+  hr
+  div.item
+    a.categoryDelete(href=category.url + item.url + '/delete') Delete
+    a.categoryUpdate(href=category.url + item.url + '/update') Update
+    div.itemName Name:
+      span.itemData #{item.name}
+    div.itemDescription Description: 
+      span.itemData #{item.description}
+    div.itemPrice Price: 
+      span.itemData #{item.price}$
+    div.itemCount Count: 
+      span.itemData #{item.count}
+
+  
